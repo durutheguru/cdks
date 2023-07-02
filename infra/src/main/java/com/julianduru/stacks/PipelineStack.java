@@ -26,8 +26,8 @@ public class PipelineStack extends Stack {
         super(scope, id, props);
 
         Map<String, String> envMap = new HashMap<>();
-        envMap.put("AWS_ACCESS_KEY_ID", "ASIAQ3HQNYFSS3XQRHGC");
-        envMap.put("AWS_SECRET_ACCESS_KEY", "CPMSg5MLcdPRJXTZ7ujVV5S8N/WloYSbgpb1/FQ5");
+        envMap.put("AWS_ACCESS_KEY_ID", "AKIAQ4MYQM5VYUCLVDFD");
+        envMap.put("AWS_SECRET_ACCESS_KEY", "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");
         envMap.put("AWS_DEFAULT_REGION", "us-east-1");
 
         CodePipeline pipeline = CodePipeline.Builder.create(this, "pipeline")
