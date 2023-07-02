@@ -37,6 +37,7 @@ public class PipelineStack extends Stack {
                             "cdk deploy --all"
                         )
                     )
+                    .primaryOutputDirectory("infra/cdk.out")
                     .build()
             )
             .build();
