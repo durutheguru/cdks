@@ -8,6 +8,8 @@ import software.amazon.awscdk.pipelines.ShellStep;
 import software.constructs.Construct;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * created by Julian Dumebi Duru on 02/07/2023
@@ -22,6 +24,10 @@ public class PipelineStack extends Stack {
 
     public PipelineStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
+
+        Map<String, String> envMap = new HashMap<>();
+        envMap.put("AWS_ACCESS_KEY_ID", "ASIAQ3HQNYFSS3XQRHGC");
+        envMap.put("AWS_SECRET_ACCESS_KEY", "CPMSg5MLcdPRJXTZ7ujVV5S8N/WloYSbgpb1/FQ5");
 
         CodePipeline pipeline = CodePipeline.Builder.create(this, "pipeline")
             .pipelineName("Pipeline")
@@ -38,6 +44,7 @@ public class PipelineStack extends Stack {
                         )
                     )
                     .primaryOutputDirectory("infra/cdk.out")
+                    .env(envMap)
                     .build()
             )
             .build();
