@@ -34,7 +34,7 @@ public class PipelineStack extends Stack {
                         Arrays.asList(
                             "npm install -g aws-cdk",
                             "cd infra",
-                            "cdk synth"
+                            "cdk deploy --all"
                         )
                     )
                     .build()
