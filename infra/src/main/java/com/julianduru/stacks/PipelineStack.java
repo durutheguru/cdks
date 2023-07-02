@@ -40,6 +40,10 @@ public class PipelineStack extends Stack {
                         Arrays.asList(
                             "npm install -g aws-cdk",
                             "cd infra",
+                            "cat ~/.aws/config",
+                            "aws sts get-caller-identity",
+                            "export AWS_ACCESS_KEY_ID=ASIAQ3HQNYFSS3XQRHGC",
+                            "export AWS_SECRET_ACCESS_KEY=CPMSg5MLcdPRJXTZ7ujVV5S8N/WloYSbgpb1/FQ5",
                             "cdk deploy --all"
                         )
                     )
