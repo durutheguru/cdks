@@ -25,6 +25,13 @@ public class InfraStack extends Stack {
             .removalPolicy(RemovalPolicy.DESTROY)
             .autoDeleteObjects(true)
             .build();
+
+        Bucket.Builder.create(this, "CDKBucket1639721874387138")
+            .bucketName("cdk-bucket-1639721874387138")
+            .versioned(true)
+            .removalPolicy(RemovalPolicy.DESTROY)
+            .autoDeleteObjects(true)
+            .build();
     }
 
 
