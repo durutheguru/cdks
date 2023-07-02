@@ -28,6 +28,7 @@ public class PipelineStack extends Stack {
         Map<String, String> envMap = new HashMap<>();
         envMap.put("AWS_ACCESS_KEY_ID", "ASIAQ3HQNYFSS3XQRHGC");
         envMap.put("AWS_SECRET_ACCESS_KEY", "CPMSg5MLcdPRJXTZ7ujVV5S8N/WloYSbgpb1/FQ5");
+        envMap.put("AWS_DEFAULT_REGION", "us-east-1");
 
         CodePipeline pipeline = CodePipeline.Builder.create(this, "pipeline")
             .pipelineName("Pipeline")
@@ -40,11 +41,13 @@ public class PipelineStack extends Stack {
                         Arrays.asList(
                             "npm install -g aws-cdk",
                             "cd infra",
-                            "cat ~/.aws/config",
-                            "aws sts get-caller-identity",
-                            "export AWS_ACCESS_KEY_ID=ASIAQ3HQNYFSS3XQRHGC",
-                            "export AWS_SECRET_ACCESS_KEY=CPMSg5MLcdPRJXTZ7ujVV5S8N/WloYSbgpb1/FQ5",
-                            "cdk deploy --all"
+                            "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID",
+                            "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY",
+                            "aws configure set region $AWS_DEFAULT_REGION",
+                            "cat ~/.aws/config || true",
+                            "cat ~/.aws/credentials || true",
+                            "aws sts get-caller-identity || true",
+                            "cdk deploy --all --profile default"
                         )
                     )
                     .primaryOutputDirectory("infra/cdk.out")
