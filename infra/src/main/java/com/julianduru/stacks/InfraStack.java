@@ -18,7 +18,6 @@ public class InfraStack extends Stack {
     public InfraStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-
         Bucket.Builder.create(this, "CDKBucket8239843982179234")
             .bucketName("cdk-bucket-8239843982179234")
             .versioned(true)
